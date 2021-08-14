@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/TharinduBalasooriya/goRestApi/routes"
 )
@@ -14,5 +15,5 @@ func main() {
 	http.Handle("/api", router)
 
 	log.Println("Listening...")
-	log.Fatal(http.ListenAndServe(":8081", router))
+	log.Fatal(http.ListenAndServe(":" + os.Getenv("PORT"), router))
 }
